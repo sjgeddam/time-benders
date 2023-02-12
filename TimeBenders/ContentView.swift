@@ -12,7 +12,6 @@ struct ContentView: View {
     @State private var inputMetric = "seconds"
     @State private var outputMetric = "minutes"
     @State private var conversionVal = 0.0
-    @FocusState private var amountIsFocused : Bool
     let metricOptions = ["seconds", "minutes", "hours", "days"]
     
     var computedVal : Double {
@@ -43,7 +42,6 @@ struct ContentView: View {
                 Section {
                     TextField("Amount to convert", value: $conversionVal, format: .number)
                         .keyboardType(.decimalPad)
-                        .focused($amountIsFocused)
                 } header: {
                     Text("Enter amount to convert")
                 }
@@ -75,6 +73,7 @@ struct ContentView: View {
                 }
 
             }
+            .navigationTitle("Time Bending")
         }
     }
 }
